@@ -1,5 +1,5 @@
 import os
-import aircraft
+from lib/flexop_model import aircraft
 import numpy as np
 import sharpy.utils.algebra as algebra
 from helper_functions.get_settings import get_settings
