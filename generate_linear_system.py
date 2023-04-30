@@ -78,7 +78,7 @@ n_tstep = 1
 # ROM settings
 rom_settings = {
     'use': use_rom,
-    'rom_method': ['Krylov'],
+    'rom_method': 'Krylov',
     'rom_method_settings': {'Krylov': {
                                         'algorithm': 'mimo_rational_arnoldi',
                                         'r': 4, 
