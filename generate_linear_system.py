@@ -21,6 +21,7 @@ lifting_only = True # ignore nonlifting bodies
 wing_only = False # Wing only or full configuration (wing+tail)
 dynamic = True 
 use_rom = False
+remove_gust_input_in_statespace = False
 
 flow = [
         'BeamLoader', 
@@ -105,7 +106,8 @@ settings = get_settings(flexop_model,
                         newmark_damp = newmark_damp,
                         n_tsteps = n_tstep,
                         num_modes = num_modes,
-                        rom_settings = rom_settings)
+                        rom_settings = rom_settings,
+                        remove_gust_input_in_statespace=remove_gust_input_in_statespace)
 
 # Generate finale FLEXOP model
 flexop_model.generate()

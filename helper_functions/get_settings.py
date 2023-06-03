@@ -234,13 +234,16 @@ def get_settings(flexop_model, flow, dt, **kwargs):
                                                             'density': rho,
                                                             'remove_predictor': True,
                                                             'use_sparse': 'off',
-                                                            'remove_inputs': ['u_gust'],
                                                             'gust_assembler':  'LeadingEdge', #'leading_edge',
                                                             # 'ScalingDict': {'length':flexop_model.aero.chord_main_root/2, 'speed': u_inf, 'density': rho},
                                                             },
                                         'track_body': free_flight,
                                         'use_euler': free_flight,
                                         }}
+        
+        if kwargs.get('remove_gust_input_in_statespace', True):
+            settings['LinearAssembler']['remove_inputs'] =  ['u_gust']
+
         rom_settings = kwargs.get('rom_settings', {'use': False})
         if rom_settings['use']:
             settings['SaveData']['save_rom'] = True
