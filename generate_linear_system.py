@@ -51,12 +51,14 @@ thrust = trim_values['thrust']
 num_modes = 21
 num_chord_panels = 8
 n_elem_multiplier = 2
+n_elem_multiplier_tail = n_elem_multiplier
 
 # Init FLEXOP Model
 flexop_model = aircraft.FLEXOP(case_name, cases_route, output_route)
 flexop_model.clean()
 flexop_model.init_structure(sigma=0.3, # SuperFLEXOP 0.3, ModifiedFLEXOP 1.
-                            n_elem_multiplier=n_elem_multiplier, # Discretisation of wing and tail
+                            n_elem_multiplier=n_elem_multiplier, # Discretisation of wing beam
+                            n_elem_multiplier_tail=n_elem_multiplier_tail, # Discretisation of tail beam
                             n_elem_multiplier_fuselage = 1, # Discretisation of fuselage beam
                             lifting_only=lifting_only, 
                             wing_only = wing_only) 
