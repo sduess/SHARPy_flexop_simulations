@@ -2,3 +2,5 @@
 01_case_files/
 
 *.pyc
+
+results_gust_response/
