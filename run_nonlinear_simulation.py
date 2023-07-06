@@ -1,7 +1,4 @@
-import os
 import aircraft
-import numpy as np
-import sharpy.utils.algebra as algebra
 from helper_functions.get_settings import get_settings
 
 """
