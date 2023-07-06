@@ -2,13 +2,13 @@ import aircraft
 from helper_functions.get_settings import get_settings
 
 """
-    This scripts includes all necessary steps to start a dynamic simulation of the Flexop or Superflexop, 
+    TThis script includes all the necessary steps to start a dynamic simulation of the Flexop or Superflexop, 
     namely:
     1) Specifying several main parameters, such as case name, aircraft model options, etc. 
     2) Defining the gust velocity field, e.g. 1-cosine gust or continuous turbulence. 
     3) Set flight conditions.
     4) Specify parameters to control the lattice grid discretisation. The values used here lead to sufficient 
-       convergence for dynamic  gust response simulations of the FLEXOP.
+       convergence for dynamic gust response simulations of the FLEXOP.
     5) The aircraft model is initialized and saved as an object. 
     6) Other parameters dependent on the model geometry and discretisation are defined.
     7) Some numerical parameters for the structural solver are specified. 
@@ -16,12 +16,10 @@ from helper_functions.get_settings import get_settings
     9) SHARPy's final simulation settings are defined using the parameters specified in the 
        previous steps. For more information about each solver, please check our documentation
        (https://ic-sharpy.readthedocs.io/en/latest/content/solvers.html).
-    10) All required SHARPY input files are written, i.e.g structural and aerodynamic model 
-        as well as simulation settings.
-    11) Finally, the simulaiton is started.
+    10) All required SHARPY input files are written, i.e. structural and aerodynamic models as well as simulation settings.
+    11) Finally, the simulation is started.
 
-    Important to note is that 1) and 2) include the parameters the user likes to specify for its 
-    individual gust simulation. Most other parameters, are very general or successfully tested/verified.
+    Important to note is that 1) and 2) include the parameters the user likes to specify for its individual gust simulation. Most other parameters are very general or successfully tested/verified.
 
 """
 
