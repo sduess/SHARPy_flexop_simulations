@@ -115,6 +115,7 @@ flow = ['BeamLoader',
         'AeroForcesCalculator',
         'DynamicCoupled',
 ]
+postprocessor_each_timestep = ['BeamLoads', 'SaveData'] #, 'AerogridPlot',  'BeamPlot']
 if use_trim:    
     flow.remove('StaticCoupled')
 else:
@@ -140,6 +141,7 @@ settings = get_settings(flexop_model,
                         structural_relaxation_factor = structural_relaxation_factor,
                         newmark_damp = newmark_damp,
                         n_tstep = number_timesteps,
+                        postprocessor_each_timestep=postprocessor_each_timestep                                
                         )
 
 # 10) Generate all required input files for a SHARPy simulation

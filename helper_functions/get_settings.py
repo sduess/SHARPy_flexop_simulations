@@ -123,7 +123,7 @@ def get_settings(flexop_model, flow, dt, **kwargs):
                                             'dt': dt,
                                             }
 
-    settings['BeamLoads'] = {'csv_output': True}
+    settings['BeamLoads'] = {'csv_output': False}
     settings['StepUvlm'] = {'num_cores': num_cores,
                             'convection_scheme': 2,
                             'gamma_dot_filtering': 7,
@@ -181,25 +181,23 @@ def get_settings(flexop_model, flow, dt, **kwargs):
                                     'dt': dt,
                                     # 'nonlifting_body_interaction': not lifting_only,
                                     'include_unsteady_force_contribution': unsteady_force_distribution, 
-                                'postprocessors': ['BeamLoads'],
-                                    # 'postprocessors': ['BeamLoads', 'BeamPlot', 'AerogridPlot', 'SaveData'],
-                                    'postprocessors_settings': {
-                                                                'BeamLoads': {'csv_output': 'off'},
-                                                                # 'BeamPlot': {'include_rbm': 'on',
-                                                                #             'include_applied_forces': 'on'},
-                                                                # 'AerogridPlot': {
-                                                                #     'include_rbm': 'on',
-                                                                #     'include_applied_forces': 'on',
-                                                                #     'minus_m_star': 40,
-                                                                #     # 'plot_nonlifting_surfaces': not lifting_only,
-                                                                #     },
-                                                                # 'SaveData': settings['SaveData'],
-                                                                },
-                                }
+                                    'postprocessors': kwargs.get('postprocessor_each_timestep', []),
+                                    'postprocessors_settings': {},
+        }
 
-    if kwargs.get('closed-loop', False):
+    
+    for postprocessor in kwargs.get('postprocessor_each_timestep', []):
+        try:
+            settings_postprocessor = settings[postprocessor]
+        except KeyError:
+            print("Settings for {} are not defined, switch to default.".format(postprocessor))
+            settings_postprocessor = {}
+        settings['DynamicCoupled']['postprocessors_settings'][postprocessor] = settings_postprocessor
+
+
+    if kwargs.get('closed_loop', False):
         # TODO: add error if network settings not set
-        settings['DynamicCoupled']['network_settings'] = kwargs.get('netowrk_settings', {})
+        settings['DynamicCoupled']['network_settings'] = kwargs.get('network_settings', {})
 
     settings['Modal'] = {'print_info': True,
                         'use_undamped_modes': True,
