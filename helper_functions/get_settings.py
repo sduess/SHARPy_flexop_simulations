@@ -99,6 +99,20 @@ def get_settings(flexop_model, flow, dt, **kwargs):
                             }
     if horseshoe:
         settings['AerogridLoader']['mstar'] = 1
+
+    if kwargs.get('dynamic_cs_input', False):
+        settings['AerogridLoader']['control_surface_deflection'] =  ['DynamicControlSurface']*4 + ['', ''] + ['DynamicControlSurface']*4 + ['', '']
+        dynamic_cs_settings = kwargs.get('dynamic_cs_settings', {})
+        settings['AerogridLoader']['control_surface_deflection_generator_settings'] = {'0': dynamic_cs_settings,
+                                                                                       '1': dynamic_cs_settings,
+                                                                                       '2': dynamic_cs_settings,
+                                                                                       '3': dynamic_cs_settings,
+                                                                                       '6': dynamic_cs_settings,
+                                                                                       '7': dynamic_cs_settings,
+                                                                                       '8': dynamic_cs_settings,
+                                                                                       '9': dynamic_cs_settings,
+                                                                                       }
+        print(settings['AerogridLoader'])
     settings['NonliftingbodygridLoader'] = {'freestream_dir': ['1', '0', '0']}
 
     settings['NonLinearDynamicCoupledStep'] = {'print_info': 'off',
