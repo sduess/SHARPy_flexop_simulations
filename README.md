@@ -1,4 +1,4 @@
-# flexop_rom_student_project
+# SHARPy Simulations of the SuperFlexop
 
 This repository contains scripts to simulate the nonlinear aeroelastic gust response of the (Super)Flexop with SHARPy, and to generate a linearized version (plus optional reduced-order model) of this aircraft model. 
 
@@ -19,11 +19,19 @@ First, activate SHARPy's conda environment and append the location of the `flexo
 source <path-to-flexop-model>/bin/flexop_vars.sh
 ```
 
-Now, the user should be all set to either run a nonlinear aeroelastic gust response study of the (Super)Flexop with 'run_nonlinear_simulation.py' or generate linear full-order order reduced-order model of this model with 'generate_linear_system.py'.
+Now, the user should be all set to either run a nonlinear aeroelastic gust response study of the (Super)Flexop with 
+```bash
+python <path-to-repository>/run_nonlinear_simulation.py
+```
+or generate a linear full-order order reduced-order model of this model with 
+```bash
+python <path-to-repository>/rgenerate_linear_system.py
+```
+Note that both scripts contain several parameters to be specified by the user.
 
 ## Postprocessors
 
-
+An example postprocessor script is added to the repo. This script exports displacement and rotation of the tip node as well as the wing root bending and torsional moments computed for each timestep of a gust response simulation saved under a given case name.
 
 ## References
 
