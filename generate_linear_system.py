@@ -1,4 +1,4 @@
-import os
+import flexop as aircraft
 import aircraft
 import numpy as np
 import sharpy.utils.algebra as algebra

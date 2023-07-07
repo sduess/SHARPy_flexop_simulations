@@ -1,4 +1,4 @@
-import aircraft
+import flexop as aircraft
 from helper_functions.get_settings import get_settings
 
 """
