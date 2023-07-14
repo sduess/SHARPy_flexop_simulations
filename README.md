@@ -35,7 +35,8 @@ An example postprocessor script is added to the repo. This script exports displa
 
 ## References
 
-[1] Duessler, S., & Palacios. A Control Design Framework for Gust Load Alleviation in more Flexible Aircraft. IFASD, 2022.
+[1] Duessler, S., & Palacios, R.. LQG-based Gust Load Alleviation Systems for Very Flexible Aircraft. AIAA SciTech, 2023.
+[2] Duessler, S., & Palacios, R.. Enhanced Unsteady Vortex Lattice Aerodynamics for Nonlinear Flexible Aircraft Dynamic Simulation. AIAA Journal, 2023. *Submitted*
 
 ## Contact
 
