@@ -101,18 +101,19 @@ def get_settings(flexop_model, flow, dt, **kwargs):
         settings['AerogridLoader']['mstar'] = 1
 
     if kwargs.get('dynamic_cs_input', False):
-        settings['AerogridLoader']['control_surface_deflection'] =  ['DynamicControlSurface']*4 + ['', ''] + ['DynamicControlSurface']*4 + ['', '']
-        dynamic_cs_settings = kwargs.get('dynamic_cs_settings', {})
-        settings['AerogridLoader']['control_surface_deflection_generator_settings'] = {'0': dynamic_cs_settings,
-                                                                                       '1': dynamic_cs_settings,
-                                                                                       '2': dynamic_cs_settings,
-                                                                                       '3': dynamic_cs_settings,
-                                                                                       '6': dynamic_cs_settings,
-                                                                                       '7': dynamic_cs_settings,
-                                                                                       '8': dynamic_cs_settings,
-                                                                                       '9': dynamic_cs_settings,
-                                                                                       }
-        print(settings['AerogridLoader'])
+        dict_predefined_cs_input_files = kwargs.get('dict_predefined_cs_input_files', {})
+        settings['AerogridLoader']['control_surface_deflection'] = [''] * flexop_model.aero.n_control_surfaces
+        print(settings['AerogridLoader']['control_surface_deflection'])
+        settings['AerogridLoader']['control_surface_deflection_generator_settings'] = {}
+        for i_cs in range(flexop_model.aero.n_control_surfaces):
+            if str(i_cs) in dict_predefined_cs_input_files.keys() and dict_predefined_cs_input_files[str(i_cs)] is not None:
+                settings['AerogridLoader']['control_surface_deflection_generator_settings'][str(i_cs)] = {'dt': dt,
+                                                                                                          'deflection_file': dict_predefined_cs_input_files[str(i_cs)]} 
+
+                settings['AerogridLoader']['control_surface_deflection'][i_cs] = 'DynamicControlSurface'
+        print(settings['AerogridLoader']['control_surface_deflection_generator_settings'])
+        print("settings = ", settings['AerogridLoader']['control_surface_deflection'])
+
     settings['NonliftingbodygridLoader'] = {'freestream_dir': ['1', '0', '0']}
 
     settings['NonLinearDynamicCoupledStep'] = {'print_info': 'off',
