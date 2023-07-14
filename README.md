@@ -16,7 +16,7 @@ and install SHARPy as described in the [documentation](https://ic-sharpy.readthe
 ## Running Simulations
 First, activate SHARPy's conda environment and append the location of the `flexop-model` folder to the system's path with
 ```bash
-source <path-to-flexop-model>/bin/flexop_vars.sh
+source <path-to-flexop-model>/bin/FLEXOP_vars.sh
 ```
 
 Now, the user should be all set to either run a nonlinear aeroelastic gust response study of the (Super)Flexop with 
@@ -25,7 +25,7 @@ python <path-to-repository>/run_nonlinear_simulation.py
 ```
 or generate a linear full-order order reduced-order model of this model with 
 ```bash
-python <path-to-repository>/rgenerate_linear_system.py
+python <path-to-repository>/generate_linear_system.py
 ```
 Note that both scripts contain several parameters to be specified by the user.
 
