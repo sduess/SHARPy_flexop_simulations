@@ -59,6 +59,7 @@ gust_settings  = {
 
 # 3) Define dynamic control surface input
 dynamic_cs_input = False # True if pre-defined control surface deflection used
+dict_predefined_cs_input_files = {}
 if dynamic_cs_input:
     route_dir = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
 
