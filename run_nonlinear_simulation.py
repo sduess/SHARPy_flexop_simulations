@@ -35,7 +35,7 @@ use_trim = False # If trim values are known, they can be insert in the dictionar
 
 factor_material_stiffness = 0.3 # Modified Flexop: 1.0, SuperFlexop: 0.3
 num_cores = 4
-simulation_time = 2*60 # 2 min
+simulation_time = 2 # 2 sec
 
 free_flight = True # True: Free-flight; False: clamped
 gravity = True
