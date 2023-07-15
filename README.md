@@ -33,11 +33,15 @@ Note that both scripts contain several parameters to be specified by the user.
 
 An example postprocessor script is added to the repo. This script exports displacement and rotation of the tip node as well as the wing root bending and torsional moments computed for each timestep of a gust response simulation saved under a given case name.
 
+## Copyleft
+
+We are happy to share our effort with the community and we welcome contributions to the code base. If you found this dataset useful we would ask you to cite the references below in any publications or reports based on it.
+
 ## References
 
 [1] Duessler, S., & Palacios, R.. LQG-based Gust Load Alleviation Systems for Very Flexible Aircraft. AIAA SciTech, 2023.
 
-[2] Duessler, S., & Palacios, R.. Enhanced Unsteady Vortex Lattice Aerodynamics for Nonlinear Flexible Aircraft Dynamic Simulation. AIAA Journal, 2023. *Submitted*
+[2] Duessler, S., & Palacios, R.. Enhanced Unsteady Vortex Lattice Aerodynamics for Nonlinear Flexible Aircraft Dynamic Simulation. AIAA Journal, 2023. *to appear*
 
 ## Contact
 
