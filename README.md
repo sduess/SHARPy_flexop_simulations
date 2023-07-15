@@ -13,6 +13,7 @@ cd <path-to-repository>/lib/sharpy
 ```
 and install SHARPy as described in the [documentation](https://ic-sharpy.readthedocs.io/en/latest/content/installation.html). 
 
+Alternatively, you can use a SHARPy distribution that is already installed on your machine. The SHARPy version used must be at least v2.0.
 ## Running Simulations
 First, activate SHARPy's conda environment and append the location of the `flexop-model` folder to the system's path with
 ```bash
