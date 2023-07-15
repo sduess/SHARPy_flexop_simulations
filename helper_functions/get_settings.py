@@ -103,7 +103,6 @@ def get_settings(flexop_model, flow, dt, **kwargs):
     if kwargs.get('dynamic_cs_input', False):
         dict_predefined_cs_input_files = kwargs.get('dict_predefined_cs_input_files', {})
         settings['AerogridLoader']['control_surface_deflection'] = [''] * flexop_model.aero.n_control_surfaces
-        print(settings['AerogridLoader']['control_surface_deflection'])
         settings['AerogridLoader']['control_surface_deflection_generator_settings'] = {}
         for i_cs in range(flexop_model.aero.n_control_surfaces):
             if str(i_cs) in dict_predefined_cs_input_files.keys() and dict_predefined_cs_input_files[str(i_cs)] is not None:
@@ -111,8 +110,6 @@ def get_settings(flexop_model, flow, dt, **kwargs):
                                                                                                           'deflection_file': dict_predefined_cs_input_files[str(i_cs)]} 
 
                 settings['AerogridLoader']['control_surface_deflection'][i_cs] = 'DynamicControlSurface'
-        print(settings['AerogridLoader']['control_surface_deflection_generator_settings'])
-        print("settings = ", settings['AerogridLoader']['control_surface_deflection'])
 
     settings['NonliftingbodygridLoader'] = {'freestream_dir': ['1', '0', '0']}
 
